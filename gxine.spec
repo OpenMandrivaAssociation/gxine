@@ -89,11 +89,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/applications/gxine.desktop
 %{_datadir}/pixmaps/*
 %{_datadir}/gxine/
-%{_datadir}/man/man1/gxine.*
-%{_datadir}/man/man1/gxine_client.*
+%{_mandir}/man1/gxine.*
+%{_mandir}/man1/gxine_client.*
 %{_datadir}/icons/hicolor/64x64/apps/gxine.png
-%lang(de) %{_datadir}/man/de/man1/gxine.*
-%lang(de) %{_datadir}/man/de/man1/gxine_client.*
+%lang(de) %{_mandir}/de/man1/gxine.*
+%lang(de) %{_mandir}/de/man1/gxine_client.*
 %_menudir/%name
 
 %files mozilla
