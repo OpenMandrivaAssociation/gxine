@@ -13,7 +13,6 @@ Patch: gxine-no-gnome-mime-registration.patch
 License: GPL
 Group: Video
 URL: http://xine.sf.net
-BuildRoot: %{_tmppath}/%{name}-buildroot
 Requires: xine-plugins >= %xinever
 Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
