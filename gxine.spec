@@ -58,10 +58,6 @@ mv %buildroot/%_libdir/gxine/gxineplugin.so %buildroot/%_libdir/mozilla/plugins
 %find_lang %name
 %find_lang %name.theme
 cat %name.theme.lang >> %name.lang
-mkdir -p %buildroot%{_menudir}/
-cat > %buildroot%{_menudir}/%{name} <<EOF 
-?package(%name):command="%{_bindir}/%name" title="Gxine" longtitle="Xine Video Player" needs="X11" section="Multimedia/Video" icon="video_section.png" mimetypes="video/dv,video/mpeg,video/msvideo,video/quicktime,video/x-anim,video/x-avi,video/x-ms-asf,video/x-ms-wmv,video/x-msvideo,video/x-nsv,video/x-flc,video/x-fli,application/ogg,application/x-ogg,audio/basic,audio/x-mp3,audio/x-mpeg,audio/mpeg,audio/x-wav,audio/x-mpegurl,audio/x-scpls,audio/x-m4a,audio/x-ms-asf,audio/x-ms-asx,audio/x-ms-wax,application/vnd.rn-realmedia,audio/x-real-audio,audio/x-pn-realaudio,application/x-flac,audio/x-flac,misc/ultravox,application/x-matroska" accept_url="true" multiple_files="true" xdg="true"
-EOF
 desktop-file-install --vendor="" \
   --remove-category="Application" \
   --add-category="Video;Player" \
@@ -94,7 +90,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/64x64/apps/gxine.png
 %lang(de) %{_mandir}/de/man1/gxine.*
 %lang(de) %{_mandir}/de/man1/gxine_client.*
-%_menudir/%name
 
 %files mozilla
 %defattr(-,root,root)
