@@ -1,5 +1,5 @@
 %define name gxine
-%define version 0.5.11
+%define version 0.5.901
 %define release %mkrel 1
 %define xinever 1-0.beta10.1mdk
 %define fname %name-%version
@@ -10,6 +10,7 @@ Version: %{version}
 Release: %{release}
 Source0: http://prdownloads.sourceforge.net/xine/%{fname}.tar.bz2
 Patch: gxine-no-gnome-mime-registration.patch
+Patch1: gxine-0.5.901-desktop-file-mime-list-generation.patch
 License: GPL
 Group: Video
 URL: http://xine.sf.net
@@ -42,6 +43,8 @@ based on the Xine engine.
 %prep
 %setup -q -n %fname
 %patch -p1
+%patch1 -p1
+automake
 
 %build
 export LDFLAGS="-L%_prefix/X11R6/lib"
@@ -88,8 +91,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/gxine.*
 %{_mandir}/man1/gxine_client.*
 %{_datadir}/icons/hicolor/64x64/apps/gxine.png
-%lang(de) %{_mandir}/de/man1/gxine.*
-%lang(de) %{_mandir}/de/man1/gxine_client.*
+%lang(de) %{_mandir}/de/man1/gxine*
+%lang(es) %{_mandir}/es/man1/gxine*
+
+
 
 %files mozilla
 %defattr(-,root,root)
