@@ -10,7 +10,7 @@ Version: %{version}
 Release: %{release}
 Source0: http://prdownloads.sourceforge.net/xine/%{fname}.tar.bz2
 Patch: gxine-no-gnome-mime-registration.patch
-License: GPL
+License: GPLv2+
 Group: Video
 URL: http://xine.sf.net
 BuildRoot: %{_tmppath}/%{name}-buildroot
@@ -46,7 +46,7 @@ based on the Xine engine.
 %build
 export LDFLAGS="-L%_prefix/X11R6/lib"
 export CPPFLAGS=$(pkg-config --cflags mozilla-nspr)
-%configure2_5x --disable-integration-wizard --with-spidermonkey=%_includedir/js-1.5
+%configure2_5x --disable-integration-wizard --with-spidermonkey=%_includedir/js-1.70
 %make
 
 %install
