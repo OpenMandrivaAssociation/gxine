@@ -1,7 +1,7 @@
 %define name gxine
-%define version 0.5.903
-%define release %mkrel 2
-%define xinever 1-0.beta10.1mdk
+%define version 0.5.904
+%define release %mkrel 1
+%define xinever 1.1.16.3-2mdv
 %define fname %name-%version
 
 Summary: GTK+ frontend for the Xine multimedia player
@@ -22,7 +22,7 @@ BuildRequires: xine-plugins
 BuildRequires: libgtk+2.0-devel
 BuildRequires: libxaw-devel
 BuildRequires: libxext-devel
-BuildRequires: liblirc-devel
+BuildRequires: liblirc-devel > 0.8.5-0.20090320.1mdv2009.1
 BuildRequires: libjs-devel
 BuildRequires: libnspr-devel
 BuildRequires: desktop-file-utils
