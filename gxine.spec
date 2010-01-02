@@ -1,5 +1,5 @@
 %define name gxine
-%define version 0.5.904
+%define version 0.5.905
 %define release %mkrel 1
 %define xinever 1.1.16.3-2mdv
 %define fname %name-%version
@@ -10,6 +10,7 @@ Version: %{version}
 Release: %{release}
 Source0: http://prdownloads.sourceforge.net/xine/%{fname}.tar.bz2
 Patch: gxine-no-gnome-mime-registration.patch
+Patch1: gxine-0.5.905-fix-mime-types.patch
 License: GPLv2+
 Group: Video
 URL: http://xine.sf.net
@@ -25,7 +26,6 @@ BuildRequires: libxext-devel
 BuildRequires: liblirc-devel > 0.8.5-0.20090320.1mdv2009.1
 BuildRequires: libjs-devel
 BuildRequires: libnspr-devel
-BuildRequires: desktop-file-utils
 
 %description
 This is a graphical frontend for Xine based on the GTK+ toolkit.
@@ -42,6 +42,8 @@ based on the Xine engine.
 %prep
 %setup -q -n %fname
 %patch -p1
+%patch1 -p1 -b .fix-mime-types
+autoreconf -fi
 
 %build
 export LDFLAGS="-L%_prefix/X11R6/lib"
@@ -58,11 +60,6 @@ mv %buildroot/%_libdir/gxine/gxineplugin.so %buildroot/%_libdir/mozilla/plugins
 %find_lang %name
 %find_lang %name.theme
 cat %name.theme.lang >> %name.lang
-desktop-file-install --vendor="" \
-  --remove-category="Application" \
-  --add-category="Video;Player" \
-  --add-category="X-MandrivaLinux-Multimedia-Video" \
-  --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
 
 %if %mdkversion < 200900
 %post
