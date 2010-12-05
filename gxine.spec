@@ -1,6 +1,6 @@
 %define name gxine
 %define version 0.5.905
-%define release %mkrel 1
+%define release %mkrel 2
 %define xinever 1.1.16.3-2mdv
 %define fname %name-%version
 
