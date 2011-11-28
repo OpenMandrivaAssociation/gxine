@@ -1,6 +1,6 @@
 %define name gxine
-%define version 0.5.905
-%define release %mkrel 2
+%define version 0.5.906
+%define release %mkrel 1
 %define xinever 1.1.16.3-2mdv
 %define fname %name-%version
 
@@ -9,8 +9,8 @@ Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: http://prdownloads.sourceforge.net/xine/%{fname}.tar.bz2
-Patch: gxine-no-gnome-mime-registration.patch
-Patch1: gxine-0.5.905-fix-mime-types.patch
+Patch0: gxine-no-gnome-mime-registration.patch
+Patch2: gxine-0.5.906-fix-glib-includes.patch
 License: GPLv2+
 Group: Video
 URL: http://xine.sf.net
@@ -41,15 +41,15 @@ based on the Xine engine.
 
 %prep
 %setup -q -n %fname
-%patch -p1
-%patch1 -p1 -b .fix-mime-types
-autoreconf -fi
+%apply_patches
+
+#autoreconf -fi
 
 %build
 export LDFLAGS="-L%_prefix/X11R6/lib"
 export CPPFLAGS=$(pkg-config --cflags mozilla-nspr)
-%configure2_5x --disable-integration-wizard --with-spidermonkey=%_includedir/js-1.70
-%make
+%configure2_5x --disable-integration-wizard --with-spidermonkey=%_includedir/js
+%make JS_LIBS="-lmozjs185 -ldl -lm"
 
 %install
 rm -rf $RPM_BUILD_ROOT %name.lang
