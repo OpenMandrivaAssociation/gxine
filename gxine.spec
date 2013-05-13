@@ -1,6 +1,6 @@
 %define name gxine
 %define version 0.5.906
-%define release %mkrel 1
+%define release  2
 %define xinever 1.1.16.3-2mdv
 %define fname %name-%version
 
@@ -14,7 +14,6 @@ Patch2: gxine-0.5.906-fix-glib-includes.patch
 License: GPLv2+
 Group: Video
 URL: http://xine.sf.net
-BuildRoot: %{_tmppath}/%{name}-buildroot
 Requires: xine-plugins >= %xinever
 Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
