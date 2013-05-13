@@ -18,14 +18,14 @@ BuildRoot: %{_tmppath}/%{name}-buildroot
 Requires: xine-plugins >= %xinever
 Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
-BuildRequires: libxine-devel >= %xinever
+BuildRequires: pkgconfig(libxine) >= %xinever
 BuildRequires: xine-plugins
 BuildRequires: libgtk+2.0-devel
-BuildRequires: libxaw-devel
-BuildRequires: libxext-devel
-BuildRequires: liblirc-devel > 0.8.5-0.20090320.1mdv2009.1
+BuildRequires: pkgconfig(xaw7)
+BuildRequires: pkgconfig(xext)
+BuildRequires: pkgconfig(liblircclient0) > 0.8.5-0.20090320.1mdv2009.1
 BuildRequires: libjs-devel
-BuildRequires: libnspr-devel
+BuildRequires: pkgconfig(nspr)
 
 %description
 This is a graphical frontend for Xine based on the GTK+ toolkit.
