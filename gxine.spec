@@ -19,7 +19,7 @@ Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
 BuildRequires: pkgconfig(libxine) >= %xinever
 BuildRequires: xine-plugins
-BuildRequires: libgtk+2.0-devel
+BuildRequires: pkgconfig(gtk+-2.0)
 BuildRequires: pkgconfig(xaw7)
 BuildRequires: pkgconfig(xext)
 BuildRequires: pkgconfig(liblircclient0) > 0.8.5-0.20090320.1mdv2009.1
