@@ -1,7 +1,7 @@
 Summary:	GTK+ frontend for the Xine multimedia player
 Name:		gxine
 Version:	0.5.908
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Video
 Url:		http://xine.sf.net
