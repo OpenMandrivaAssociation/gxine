@@ -1,21 +1,21 @@
 Summary:	GTK+ frontend for the Xine multimedia player
 Name:		gxine
-Version:	0.5.908
-Release:	2
+Version:	0.5.910
+Release:	1
 License:	GPLv2+
 Group:		Video
 Url:		http://xine.sf.net
 Source0:	http://prdownloads.sourceforge.net/xine/%{name}-%{version}.tar.xz
 Patch0:		gxine-no-gnome-mime-registration.patch
 BuildRequires:	xine-plugins
-BuildRequires:	pkgconfig(gtk+-2.0)
+BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(liblircclient0)
 BuildRequires:	pkgconfig(libxine)
 BuildRequires:	pkgconfig(mozjs185)
-BuildRequires:	pkgconfig(nspr)
 BuildRequires:	pkgconfig(xaw7)
 BuildRequires:	pkgconfig(xext)
 Requires:	xine-plugins
+Obsoletes:	gxine-mozilla
 
 %description
 This is a graphical frontend for Xine based on the GTK+ toolkit.
@@ -37,20 +37,6 @@ This is a graphical frontend for Xine based on the GTK+ toolkit.
 
 #----------------------------------------------------------------------------
 
-%package mozilla
-Summary:	Xine video player plugin for Mozilla
-Group:		Video
-Requires:	%{name} = %{EVRD}
-
-%description mozilla
-This is a video player plugin for Mozilla and compatible web browsers
-based on the Xine engine.
-
-%files mozilla
-%{_libdir}/mozilla/plugins/gxineplugin.so
-
-#----------------------------------------------------------------------------
-
 %prep
 %setup -q
 %apply_patches
@@ -59,14 +45,13 @@ based on the Xine engine.
 %configure2_5x \
 	--disable-static \
 	--disable-integration-wizard \
-	--with-spidermonkey=%{_includedir}/js
+	--with-spidermonkey=%{_includedir}/js \
+        --with-gtk3 \
+	--without-browser-plugin
 %make JS_LIBS="-lmozjs185 -ldl -lm"
 
 %install
 %makeinstall_std
-
-mkdir -p %{buildroot}%{_libdir}/mozilla/plugins
-mv %{buildroot}%{_libdir}/gxine/gxineplugin.so %{buildroot}%{_libdir}/mozilla/plugins
 
 %find_lang %{name} %{name}.theme %{name}.lang
 

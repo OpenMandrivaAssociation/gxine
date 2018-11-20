@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   gxine-0.5.908.tar.xz: 542e723c9c2d396a1da68272fae4cec762cb086f
+sources:
+  gxine-0.5.910.tar.xz: d3e5569e7534600600fcfb1232916763c6150205
