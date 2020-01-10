@@ -39,7 +39,7 @@ This is a graphical frontend for Xine based on the GTK+ toolkit.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 %configure2_5x \
