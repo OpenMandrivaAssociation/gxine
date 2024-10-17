@@ -4,7 +4,7 @@ Version:	0.5.910
 Release:	1
 License:	GPLv2+
 Group:		Video
-Url:		http://xine.sf.net
+Url:		https://xine.sf.net
 Source0:	http://prdownloads.sourceforge.net/xine/%{name}-%{version}.tar.xz
 Patch0:		gxine-no-gnome-mime-registration.patch
 BuildRequires:	xine-plugins
