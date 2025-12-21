@@ -7,6 +7,11 @@ Group:		Video
 Url:		https://xine.sf.net
 Source0:	http://prdownloads.sourceforge.net/xine/%{name}-%{version}.tar.xz
 Patch0:		gxine-no-gnome-mime-registration.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	xine-plugins
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(liblircclient0)
